@@ -1,0 +1,15 @@
+<h2>Отзывы о магазине</h2>
+<p>Добавить отзыв:</p>
+<form action="">
+<input type="text" placeholder="Ваше имя">
+<input type="text" placeholder="Ваш отзыв">
+<button type="submit">Отправить</button>
+</form>
+ {% for item in feedbacks %}
+    <div>
+        <p style="font-weight: bold;">{{ item.name }}</p>
+        <p>{{ item.feedback }}</p>
+        
+    </div>
+    <hr>
+    {% endfor %}  

@@ -1,0 +1,40 @@
+@import url(../../fonts/iconFont/style.css);
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.header {
+    background-color: #000;
+    width: 100vw;
+    height: 5vh;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+a {
+    text-decoration: none;
+}
+.menu-link {
+    color: bisque;
+}
+.logout {
+    color: coral;
+}
+.registr-form {
+    display: flex;
+    flex-direction: column;
+   
+    width: 25vw;
+}
