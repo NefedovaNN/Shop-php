@@ -8,5 +8,5 @@ use app\engine\App;
         Save? <input type='checkbox' name='save'>
         <input type="submit" name="ok">
     </form>
-    <p class=""> У вас еще нет аккаунта? <a href="/auth/registration">Зарегистрируйтесь</a></p>
+    <p class=""> У вас еще нет аккаунта? <a href="/registr">Зарегистрируйтесь</a></p>
     <div> <p><?= App::call()->session->get('message')?></p></div>

@@ -7,7 +7,7 @@
     <p>price: <?=$product->price?></p>
     <button data-id="<?=$product->id?>" class="buy" type="submit">Купить</button>
 </div>
-
+<a href="/product/catalog">Назад</a>
 <script>
     let btn = document.querySelector('.buy');
     btn.addEventListener('click', () => {

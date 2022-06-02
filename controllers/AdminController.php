@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function actionIndex()
     {
         if (App::call()->userRepository->is_Admin()) {
-            $orders = App::call()->ordersRepository->getAll();
+            $orders = App::call()->ordersRepository->getAllOrderById();
             echo $this->render('admin/admin', [
                 'orders' => $orders
             ]);

@@ -45,6 +45,12 @@ abstract class Repository implements IRepository
         $sql = "SELECT * FROM {$tableName}";
         return App::call()->db->queryAll($sql);
     }
+    public function getAllOrderById()
+    {
+        $tableName = $this->getTableName();
+        $sql = "SELECT * FROM {$tableName} ORDER BY `id` DESC";
+        return App::call()->db->queryAll($sql);   
+    }
 
     public function insert(Model $entity)
     {

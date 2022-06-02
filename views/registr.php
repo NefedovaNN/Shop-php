@@ -3,7 +3,7 @@
 use app\engine\App;
 ?>
 <p>Регистрация</p>
-<form class="registr-form" action="/auth/signUp" method="POST">
+<form class="registr-form" action="/registr/signUp" method="POST">
     <label for="firstName">Имя</label>
     <input type="text" placeholder="Введите ваше имя" value="" name="firstName">
    
@@ -12,6 +12,7 @@ use app\engine\App;
     
     <label for="email">Адрес электронной почты</label>
     <input type="email" placeholder="Введите адрес электронной почты" value="" name="email">
+   
     <label for="login">Придумайте логин</label>
     <input type="text" placeholder="Введите логин" value="" name="login">
     
@@ -25,8 +26,8 @@ use app\engine\App;
     <input type="password" placeholder="Подтвердите пароль" value="" name="pass_confirm">
     
     <label for="city">Город</label>
-    <input type="password" placeholder="Введите пароль" value="" name="city">
+    <input type="text" placeholder="Введите город" value="" name="city">
     <button type="submit">Зарегистрироваться</button>
 </form>
 <div> <p><?= App::call()->session->get('message')?></p></div>
-<p>Уже есть аккаунт? <a href="/auth/authorization">Авторизуйтесь!</a></p>
+<p>Уже есть аккаунт? <a href="/auth">Авторизуйтесь!</a></p>

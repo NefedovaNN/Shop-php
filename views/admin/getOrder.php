@@ -6,3 +6,4 @@
     <p><?= $item['price'] ?></p>
 </div>
 <?php endforeach; ?><br>
+<a class="" href="/admin">Назад</a>
