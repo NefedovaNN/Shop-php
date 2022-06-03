@@ -1,7 +1,11 @@
-<?php foreach($basket as $item): ?>
-    <div>
-    <p><?= $item['title'] ?></p>
-    <img src="/img/<?= $item['image'] ?>" width="200px">
-    <p><?= $item['price'] ?></p>
-</div>
+<h2 class="page_name">Order details</h2>
+<?php foreach ($basket as $item) : ?>
+    <div class="order-item">
+        <img class="order-product-image" src="/img/<?= $item['image'] ?>">
+        <div class="order-text">
+        <h3 class="product-title"><?= $item['title'] ?></h3>
+        <p class="product-price">Price: <?= $item['price'] ?> $</p>
+        </div>
+    </div>
 <?php endforeach; ?><br>
+<a class="back" href="/orders">Назад</a>

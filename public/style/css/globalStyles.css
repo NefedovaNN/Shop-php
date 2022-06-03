@@ -1,4 +1,5 @@
 @import url(../../fonts/iconFont/style.css);
+@import url(catalog.css);
 *{
     margin: 0px;
     padding: 0px;
@@ -14,8 +15,7 @@ body {
 .header {
     background-color: #000;
     width: 100vw;
-    height: 5vh;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -23,11 +23,19 @@ body {
     margin-bottom: 20px;
 
 }
+
+.header_right{
+    display: flex;
+} 
 a {
     text-decoration: none;
 }
 .menu-link {
     color: bisque;
+    margin: 20px;
+}
+.icon-user, .icon-user-check, .icon-user-tie, .icon-cart {
+   font-size: 30px;
 }
 .logout {
     color: coral;
@@ -35,6 +43,5 @@ a {
 .registr-form {
     display: flex;
     flex-direction: column;
-   
     width: 25vw;
 }

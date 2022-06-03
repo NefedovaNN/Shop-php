@@ -10,6 +10,7 @@ class RegistrController extends Controller
     {
         echo $this->render('registr');
     }
+    
     public function actionSignUp()
     {
         $login = App::call()->request->getParams()['login'];
@@ -26,8 +27,9 @@ class RegistrController extends Controller
 
                 $userlogin = App::call()->userRepository->getWhere('login', $login);
                 $userPhone = App::call()->userRepository->getWhere('numberPhone', $numberPhone);
+                $userEmail = App::call()->userRepository->getWhere('email', $email);
                 
-                if(!$userlogin && !$userPhone){
+                if(!$userlogin && !$userPhone && !$email){
                     $hash = password_hash($pass, PASSWORD_DEFAULT);
                     $user = new User($login, $pass, $hash, $numberPhone, $firstName, $lastName, $email, $city);
                     App::call()->userRepository->save($user);  

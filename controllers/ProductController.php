@@ -2,8 +2,7 @@
 namespace app\controllers;
 
 use app\engine\App;
-use app\engine\Request;
-use app\models\repositories\ProductRepository;
+
 
 class ProductController extends Controller
 {
@@ -14,7 +13,7 @@ class ProductController extends Controller
     protected function actionCatalog()
     {
         $page = App::call()->request->getParams()['page'] ?? 0;
-        $catalog = App::call()->productRepository->getLimit(($page + 1) * 2);
+        $catalog = App::call()->productRepository->getLimit(($page + 1) * 3);
        
        echo $this->render('product/catalog', [
             'catalog' => $catalog,

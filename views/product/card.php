@@ -1,13 +1,13 @@
-<h2>Товар</h2>
+
 
 <div class="product-item" id="<?=$product->id?>">
-    <h3><?=$product->title?></h3>
-    <img src="/img/<?= $product->image?>" alt="" width="">
-    <p><?= $product->description?></p>
-    <p>price: <?=$product->price?></p>
+    <h3 class="product-title"><?=$product->title?></h3>
+    <img class="product-image" src="/img/<?= $product->image?>" alt="" >
+    <p class="product-description"><?= $product->description?></p>
+    <p class = 'product-price'>Price: <?=$product->price?> $</p>
     <button data-id="<?=$product->id?>" class="buy" type="submit">Купить</button>
 </div>
-<a href="/product/catalog">Назад</a>
+<a class="back" href="/product/catalog">Назад</a>
 <script>
     let btn = document.querySelector('.buy');
     btn.addEventListener('click', () => {
