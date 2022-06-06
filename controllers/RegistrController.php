@@ -8,7 +8,10 @@ class RegistrController extends Controller
 {
     public function actionIndex() 
     {
-        echo $this->render('registr');
+        echo $this->render('registr', [
+            'message' => App::call()->session->get('message'),
+            'unsetMessage' => App::call()->session->unset('message')
+        ]);
     }
     
     public function actionSignUp()
@@ -29,27 +32,31 @@ class RegistrController extends Controller
                 $userPhone = App::call()->userRepository->getWhere('numberPhone', $numberPhone);
                 $userEmail = App::call()->userRepository->getWhere('email', $email);
                 
-                if(!$userlogin && !$userPhone && !$email){
+                if(!$userlogin && !$userPhone && !$userEmail){
                     $hash = password_hash($pass, PASSWORD_DEFAULT);
                     $user = new User($login, $pass, $hash, $numberPhone, $firstName, $lastName, $email, $city);
                     App::call()->userRepository->save($user);  
                     App::call()->session->set('message', 'Вы успешно зарегистрированы! Авторизуйтесь!');
+                    
                     header("Location: /auth");
                     die();
                 } else {
                     App::call()->session->set('message', 'Пользователь с такими данными уже есть! Введите новые данные!');
+                   
                     header("Location: /registr");
                     die();
                    
                 }
             } else {
                 App::call()->session->set('message', 'Пароли не совпадают');
+               
                 header("Location: /registr");
                 die();
             }
 
         } else {
             App::call()->session->set('message', 'Не все поля заполнены!');
+            
             header("Location: /registr");
             die();
         }

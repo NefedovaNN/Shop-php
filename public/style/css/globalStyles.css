@@ -1,5 +1,9 @@
 @import url(../../fonts/iconFont/style.css);
 @import url(catalog.css);
+@import url(profile.css);
+@import url(auth.css);
+@import url(feedback.css);
+@import url(orders.css);
 *{
     margin: 0px;
     padding: 0px;
@@ -44,4 +48,10 @@ a {
     display: flex;
     flex-direction: column;
     width: 25vw;
+}
+.message {
+    margin: 10px;
+    color: rgb(48, 17, 17);
+    font-size: 16px;
+    font-weight: 600;
 }

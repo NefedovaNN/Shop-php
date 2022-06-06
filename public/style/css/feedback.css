@@ -1,0 +1,60 @@
+
+.feedbacks-form {
+    display: flex;
+    margin: 20px;
+
+}
+.input-name{
+    margin: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(73, 71, 71);
+    padding: 1%;
+}
+.input-feedback
+{
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(73, 71, 71);
+    padding: 1%;
+    margin: 10px;
+}
+.feedbacks-block {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.feedbacks-item{
+    display: flex;
+    flex-direction: column;
+}
+.feedbacks-text{
+    display: flex;
+}
+.name{
+    margin: 5px;
+    font-weight: bold;
+}
+ .feedback{
+    margin: 5px;
+}
+.feedbacks-buttons {
+    display: flex;
+}
+.btn-delete, .btn-edit {
+    margin: 10px;
+    padding: 1%;
+    border: 1px solid #17696A;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    color: #17696A;
+    transition: all 0.5s;
+}
+.btn-edit:hover, .btn-delete:hover {
+    color: bisque;
+    background-color: #17696A; 
+}

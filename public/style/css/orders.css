@@ -1,0 +1,28 @@
+
+.order-list{
+    display: flex;
+    flex-direction: column;
+}
+.order-item-li{
+    margin: 10px;
+}
+.order-info {
+    font-size: 16px;
+    color: rgb(12, 12, 27);
+}
+.edit-status {
+    display: flex;
+}
+.edit-status-select{
+    margin: 10px;
+    outline: none;
+    cursor: pointer;
+}
+.order-input {
+    border: none;
+    outline: none;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    
+}

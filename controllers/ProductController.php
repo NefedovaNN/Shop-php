@@ -13,12 +13,13 @@ class ProductController extends Controller
     protected function actionCatalog()
     {
         $page = App::call()->request->getParams()['page'] ?? 0;
-        $catalog = App::call()->productRepository->getLimit(($page + 1) * 3);
+        $catalog = App::call()->productRepository->getLimit(($page + 1)*3);
        
        echo $this->render('product/catalog', [
             'catalog' => $catalog,
-            'page' => ++$page
-        ]);
+            'page' => ++$page,
+        ]); 
+     
     }
     protected function actionCard()
     {

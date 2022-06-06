@@ -1,0 +1,53 @@
+
+.profile-info {
+    display: flex;
+    margin-top: 20px;
+}
+.user-info-block {
+    display: flex;
+    flex-direction: column;
+}
+.user-info {
+    text-decoration: underline;
+    margin: 10px;
+    font-size: 20px;
+}
+.input-user-info {
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    font-size: 20px;
+    
+}
+.my-order {
+    font-size: 20px;
+    color: rgb(12, 12, 27);
+    margin: 10px;
+}
+.btn-change-info {
+    display: flex;
+    align-items: flex-end;
+}
+.change-user-info, .change-user-save, .confirm-checkout {
+    padding: 2%;
+    border: 1px solid #17696A;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #fff;
+    color: #17696A;
+    font-weight: 600;
+    transition: all 0.5s;
+    
+}
+.change-user-save {
+    width: 50%;
+    align-self: center;
+
+  
+}
+.change-user-save:hover, .change-user-info:hover, .confirm-checkout:hover {
+    color: bisque;
+    background-color: #17696A; 
+    
+}

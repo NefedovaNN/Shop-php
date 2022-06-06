@@ -32,10 +32,13 @@ class UserRepository extends Repository
         return null !== App::call()->session->get('login');
         
     }
-
-    public function getName() {
+    public function getLogin() {
 
         return App::call()->session->get('login');
-        
+    }
+    public function getName() {
+        $login = App::call()->session->get('login');
+        $user = $this->getWhere('login', $login);
+        return $user->firstName;
     }
 }

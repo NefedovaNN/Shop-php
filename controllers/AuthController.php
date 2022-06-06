@@ -9,7 +9,10 @@ class AuthController extends Controller
 {
     public function actionIndex() 
     {
-        echo $this->render('auth');
+        echo $this->render('auth', [
+            'message' => App::call()->session->get('message'),
+            'unsetMessage' => App::call()->session->unset('message')
+        ]);
     }
     
     
@@ -24,6 +27,7 @@ class AuthController extends Controller
         } else
         {
             App::call()->session->set('message', 'Неверный логин или пароль!');
+            
             header("Location: /auth");
             die();
           

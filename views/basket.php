@@ -1,25 +1,24 @@
-<h2>Корзина товаров</h2>
-
-<?php foreach ($basket as $item) : ?>
-    <div class="product-item-cart" id=<?= $item['basket_id'] ?>>
-        <div class="cart-image">
-        <img class="product-image-cart" src="/img/<?= $item['image'] ?>" >
-        </div>
-        <div class="cart-item-info">
-        <h3 class="product-title"><?= $item['title'] ?></h3>
-        <p class="product-price">Price: <?= $item['price'] ?> $</p>
-        <button class="delete" data-id="<?= $item['basket_id'] ?>">Delete</button>
-        </div>
-    </div>
-<?php endforeach; ?><br>
+<h2 class="page_name">Корзина товаров</h2>
 <?php if ($basket) : ?>
-    <form action="/orders/checkout" method="POST">
-        <p>Для оформления заказа, введите номер телефона:</p><br>
-        <input type="text" name='numberPhone' value="" placeholder="Ваш номер телефона">
-        <button class="checkout" name="ok" type="submit">Checkout</button>
+    <form action="/orders/checkoutInfo" method="POST">
+    <?php foreach ($basket as $item) : ?>
+        <div class="product-item-cart" id=<?= $item['basket_id'] ?>>
+            <div class="cart-image">
+                <a href="/product/card/?id=<?= $item['prod_id'] ?>" class="product-item-link">
+                    <img class="product-image-cart" src="/img/<?= $item['image'] ?>" >
+                </div>
+                <div class="cart-item-info">
+                    <h3 class="product-title"><?= $item['title'] ?></h3>
+                    <p class="product-price">Price: <?= $item['price'] ?> $</p>
+                </a>
+                <button class="delete" data-id="<?= $item['basket_id'] ?>">Удалить из корзины</button>
+            </div>
+        </div>
+        <?php endforeach; ?><br>
+        <button class="checkout" name="checkout" type="submit">Оформить заказ</a>
     </form>
-    <?php else: ?>
-        <p>Ваша корзина пуста</p>
+<?php else: ?>
+        <p class="empty-login">Ваша корзина пуста</p>
 <?php endif; ?>
 
 

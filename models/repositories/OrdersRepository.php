@@ -7,10 +7,10 @@ use app\models\Repository;
 
 class OrdersRepository extends Repository
 {
-    public function getOrders($numberPhone)
+    public function getOrders($value)
     {
-        $sql = "SELECT * FROM `orders` WHERE numberPhone = :numberPhone";
-        return App::call()->db->queryAll($sql, ['numberPhone' => $numberPhone]);
+        $sql = "SELECT * FROM `orders` WHERE numberPhone = :value";
+        return App::call()->db->queryAll($sql, ['value' => $value]);
     }
     public function getTableName(){
         return 'orders';

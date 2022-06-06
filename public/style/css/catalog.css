@@ -46,7 +46,7 @@
 .product-description {
     margin-bottom: 20px;
 }
-.buy , .delete, .checkout {
+.buy , .delete {
     padding: 2%;
     border: 1px solid #17696A;
     cursor: pointer;
@@ -54,6 +54,7 @@
     color: bisque;
     font-size: 14px;
     line-height: 30px;
+    transition: all 0.5s;
 }
 .product-item-cart {
     display: flex;
@@ -74,4 +75,17 @@
 .order-product-image {
     width: 150px;
     margin-right: 20px;
+}
+.checkout {
+    padding: 1%;
+    border: 1px solid #17696A;
+    background-color: #17696A;
+    color: bisque;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.buy:hover , .delete:hover, .checkout:hover {
+    background-color: #fff;
+    color: #17696A;
+   
 }

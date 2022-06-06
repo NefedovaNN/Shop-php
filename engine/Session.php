@@ -22,5 +22,9 @@ class Session
     {
         return $_SESSION[$key];
     }
+    public function unset($key) 
+    {
+        unset($_SESSION[$key]);
+    }
 
 }
