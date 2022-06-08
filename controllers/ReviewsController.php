@@ -10,10 +10,17 @@ class ReviewsController extends Controller
   protected function actionIndex()
   {
     $feedbacks = App::call()->reviewsRepository->getAll();
+    $login = App::call()->userRepository->getLogin();
+    $myFeedback = App::call()->reviewsRepository->getReviews('login', $login);
+   
     echo  $this->render('reviews', [
       'feedbacks' => $feedbacks,
+      'myFeedback' => $myFeedback,
       'isAdmin' => App::call()->userRepository->is_Admin(),
-      'isAuth' => App::call()->userRepository->isAuth()
+      'isAuth' => App::call()->userRepository->isAuth(),
+      'name' => App::call()->userRepository->getName(),
+      'message' => App::call()->session->get('message'),
+      'unsetMessage' => App::call()->session->unset('message')
     ]);
   }
   protected function actionAdd()
@@ -21,13 +28,17 @@ class ReviewsController extends Controller
     $id = App::call()->request->getParams()['id'];
     $name = App::call()->request->getParams()['name'];
     $feedback = App::call()->request->getParams()['feedback'];
+    $login = App::call()->userRepository->getLogin();
 
     if ($id) {
       $reviews = App::call()->reviewsRepository->getOne($id);
       $reviews->name = $name;
       $reviews->feedback = $feedback;
+      $reviews->login = $login;
+      App::call()->session->set('message', 'Изменено');
     } else {
-      $reviews = new Reviews($name, $feedback);
+      $reviews = new Reviews($name, $feedback, $login);
+      App::call()->session->set('message', 'Ваш отзыв добавлен');
     }
     App::call()->reviewsRepository->save($reviews);
     header("Location: /reviews");

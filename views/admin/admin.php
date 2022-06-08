@@ -1,4 +1,5 @@
 <h2 class="page_name">Кабинет администратора</h2>
+<div class="container">
 <ul class="orders-list">
     <?php foreach($orders as $item): ?>
         <li class="order-item-li">
@@ -22,3 +23,4 @@
     <hr>
 <?php endforeach; ?>
 </ul>
+</div>

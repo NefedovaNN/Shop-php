@@ -1,4 +1,6 @@
-<h2 class="page_name">Order details</h2>
+<a class="back" href="/admin"><i class="icon-undo2"></i></a>
+<div class="container">
+<h2 class="page_name">Детали заказа</h2>
 <?php foreach($basket as $item): ?>
     <div class="order-item" id=<?=$item['basket_id']?>>
         <img class="order-product-image" src="/img/<?= $item['image'] ?>">
@@ -8,4 +10,4 @@
     </div>
 </div>
 <?php endforeach; ?><br>
-<a class="" href="/admin">Назад</a>
+</div>

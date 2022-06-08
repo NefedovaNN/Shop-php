@@ -1,4 +1,5 @@
 
+<div class="container">
 <h2 class="page_name">Авторизация и регистрация</h2>
 <form class="registr-form" action="/auth/login" method="post">
     <input class="auth-input" type="text" name="login" placeholder="Введите ваш логин">
@@ -13,3 +14,4 @@
 <?php if($message): ?>
     <p class="message"><?= $message?></p>
 <?php endif; ?>
+</div>

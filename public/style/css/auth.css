@@ -6,6 +6,11 @@
     margin: 20px;
    
 }
+.auth{
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+}
 .auth-input{
     margin: 10px;
     font-size: 16px;
@@ -46,5 +51,5 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    /* text-decoration: underline; */
+    
 }

@@ -1,3 +1,4 @@
+<div class="container">
 <h2 class="page_name">Каталог</h2>
 <div class="product_list">
     <?php foreach ($catalog as $item) : ?>
@@ -13,6 +14,7 @@
     
 </div>
  <a href="/product/catalog/?page=<?= $page ?>">Еще</a>
+</div>
  <script>
     let btn = document.querySelectorAll('.buy');
     btn.forEach(element => {

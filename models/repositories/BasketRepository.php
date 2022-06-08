@@ -10,7 +10,7 @@ class BasketRepository extends Repository
 {
     public function getBasket($session_id)
     {
-        $sql = "SELECT basket.id as basket_id, products.id prod_id, products.title, products.image, products.description, products.price FROM `basket`, `products` WHERE `session_id` = :session_id AND basket.product_id = products.id";
+        $sql = "SELECT basket.id as basket_id, quantity, products.id prod_id, products.title, products.image, products.description, products.price FROM `basket`, `products` WHERE `session_id` = :session_id AND basket.product_id = products.id";
         return App::call()->db->queryAll($sql, ['session_id' => $session_id]);
     }
     public function getTableName()

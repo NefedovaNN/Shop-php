@@ -1,4 +1,5 @@
-
+<div class="container">
+    
 <h2 class="page_name">Регистрация</h2>
 <form class="registr-form" action="/registr/signUp" method="POST">
     <label for="firstName">Имя</label>
@@ -31,3 +32,4 @@
 <?php endif; ?>
 
 <p class = "auth">Уже есть аккаунт? <a class="auth-link" href="/auth">Авторизуйтесь!</a></p>
+</div>

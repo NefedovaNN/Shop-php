@@ -13,7 +13,7 @@ class BasketController extends Controller
     {
         $session_id = App::call()->session->getId();
         $basket = App::call()->basketRepository->getBasket($session_id);
-
+       
         echo $this->render('basket', [
             'basket' => $basket
         ]);
@@ -21,15 +21,31 @@ class BasketController extends Controller
     public function actionAdd()
     {
         $id = App::call()->request->getParams()['id'];
-
         $session_id = App::call()->session->getId();
+        $basket = App::call()->basketRepository->getBasket($session_id); 
+        
+       foreach($basket as $item) {
 
-        $basket = new Basket($session_id, $id);
-        App::call()->basketRepository->save($basket);
+            if($item['prod_id'] == $id){
+               
+                $basket_id = $item['basket_id'];
+                $quantity = App::call()->basketRepository->getOne($basket_id)->quantity += 1;
+            }
 
+       }
+       if($quantity > 1){
+           $basket = App::call()->basketRepository->getOne($basket_id);
+           $basket->quantity = $quantity;
+           App::call()->basketRepository->save($basket);
+       } else {
+           $basket = new Basket($session_id, $id);
+           App::call()->basketRepository->save($basket);
+       }
+   
         $response = [
             'status' => 'ok',
-            'count' =>  App::call()->basketRepository->getCountWhere('session_id', $session_id)
+            'count' =>  App::call()->basketRepository->getCountWhere('session_id', $session_id),
+            // 'quantity' => App::call()->basketRepository->getBasket('session_id', $session_id)->quantity
         ];
         echo  json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         die();
@@ -45,7 +61,18 @@ class BasketController extends Controller
             $error = 'error2';
         } else {
             if ($session_id == $basket->session_id) {
-                App::call()->basketRepository->delete($basket);
+                if($basket->quantity > 1){
+
+                    $quantity = $basket->quantity -= 1;
+                    
+                    App::call()->basketRepository->save($basket);
+                    
+                    
+                } else {
+                    $quantity = 0;
+                    App::call()->basketRepository->delete($basket);
+                }
+                
             } else {
                 $error = 'error1';
             }
@@ -54,7 +81,8 @@ class BasketController extends Controller
 
         $response = [
             'status' => $error,
-            'count' => App::call()->basketRepository->getCountWhere('session_id', $session_id)
+            'count' => App::call()->basketRepository->getCountWhere('session_id', $session_id),
+            'quantity' => $quantity
         ];
         echo  json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         die();

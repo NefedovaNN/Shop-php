@@ -1,3 +1,4 @@
+<div class="container">
 <h2 class='page_name'>Профиль пользователя</h2>
 
 <?php if ($isAuth): ?>
@@ -22,8 +23,9 @@
       <p class="message"><?= $message ?></p>
    <?php endif; ?>
 <?php else : ?>
-   <p class='empty-login'>Ваш профиль пуст, <a href="/registr">зарегистрируйтесь, чтобы заполнить его</a></p>
+   <a class="auth-link" href="/auth">Авторизуйтесь, чтобы посмотреть свой профиль!</a>
 <?php endif; ?>
+</div>
 
 
 
