@@ -22,7 +22,9 @@ class OrdersController extends Controller
 
     echo  $this->render('orders/orders', [
       'orders' => $orders,
-      'isAuth' => App::call()->userRepository->isAuth()
+      'isAuth' => App::call()->userRepository->isAuth(),
+      'message' => App::call()->session->get('message'),
+      'unsetMessage' => App::call()->session->unset('message')
     ]);
   }
   protected function actionOrderDetails()
@@ -32,7 +34,10 @@ class OrdersController extends Controller
     $session_id = $order->session_id;
     $basket = App::call()->basketRepository->getBasket($session_id);
     echo $this->render('orders/orderDetails', [
-      'basket' => $basket
+      'basket' => $basket,
+      'sum' => App::call()->basketRepository->getBasketSum($session_id),
+      'message' => App::call()->session->get('message'),
+      'unsetMessage' => App::call()->session->unset('message')
     ]);
   }
 
@@ -41,7 +46,7 @@ class OrdersController extends Controller
     $session_id = App::call()->session->getId();
     $login = App::call()->userRepository->getLogin();
     $user = App::call()->userRepository->getWhere('login', $login);
-    $sum = App::call()->basketRepository->getSum('session_id', $session_id);
+    $sum = App::call()->basketRepository->getBasketSum( $session_id);
     echo $this->render('orders/checkoutInfo', [
       'user' => $user,
       'sum' => $sum,

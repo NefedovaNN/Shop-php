@@ -13,7 +13,7 @@
     <?php if ($isAdmin) : ?>
         <a class='menu-link' href="/admin"><i class="icon-user-tie"></i></a><br>
     <?php endif; ?>
-    <a class='menu-link' href="/basket"><i class="icon-cart"></i>(<span id="count"><?= $count ?></span>)</a>
+    <a class='menu-link' href="/basket"><i class="icon-cart"></i><span id="count"><?= $count ?></span></a>
     <?php if ($isAuth) : ?>
         <a class='menu-link' href="/profile"><i class="icon-user-check"></i></a>
     <?php else : ?>

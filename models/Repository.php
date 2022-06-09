@@ -20,17 +20,10 @@ abstract class Repository implements IRepository
     public function getCountWhere($name, $value)
     {
         $tableName = $this->getTableName();
-        $sql = "SELECT count(id) as count FROM {$tableName} WHERE {$name} = :value";
+        $sql = "SELECT sum(quantity) as count FROM {$tableName} WHERE {$name} = :value";
         return App::call()->db->queryOne($sql, ['value' => $value])['count'];
     }
-    public function getSum($name, $value)
-    {
-        $tableName = $this->getTableName();
-        $sql = "SELECT SUM(products.price) as sum FROM {$tableName}, `products` WHERE {$name} = :value AND {$tableName}.product_id = products.id";
-        return App::call()->db->queryOne($sql, ['value' => $value])['sum'];
-    }
-
-
+   
     public function getOne($id)
     {
         $tableName = $this->getTableName();

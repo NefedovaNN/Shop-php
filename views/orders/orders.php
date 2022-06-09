@@ -13,10 +13,13 @@
                 <hr>
             <?php endforeach; ?>
         </ul>
+        <p class="message"><?=$message?></p>
     <?php else : ?>
         <p class="auth">Список ваших заказов пуст </p>
     <?php endif; ?>
 <?php else : ?>
-    <p class="auth">У вас пока нет заказов, или они не видны. Для просмотра своих заказов и их статусов <a class="auth-link" href="/auth">авторизуйтесь!</a></p>
+    <p class="message"><?=$message?></p>
+    <p class="auth"> Для просмотра своих заказов и их статусов <a class="auth-link" href="/auth">авторизуйтесь,</a> или <a class="auth-link" href="/auth">зарегистрируйтесь!</a></p>
 <?php endif; ?>
+
 </div>
