@@ -19,6 +19,7 @@ class UserRepository extends Repository
         $user = $this->getWhere('login', $login);
         if($user !== false && password_verify($password, $user->hash)){
             App::call()->session->set('login', $login);
+            App::call()->session->set('id', $user->id);
             return true;
         }
         return false;

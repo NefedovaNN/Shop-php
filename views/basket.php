@@ -44,6 +44,9 @@
                     product_sum.textContent = "Price: " + answer.product_sum + "$";
                     document.getElementById('count').innerText = answer.count;
                     sum.textContent = "Cумма заказа: " + answer.sum + "$";
+                    if(answer.sum === 0 || answer.sum === null){
+                        document.querySelector('.checkout').style.display = 'none';
+                    }
                     if(answer.quantity === 0 || answer.quantity === null ){
                         
                         document.getElementById(id).remove();

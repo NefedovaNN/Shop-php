@@ -13,7 +13,7 @@
     <?php endforeach; ?>
     
 </div>
- <a href="/product/catalog/?page=<?= $page ?>">Еще</a>
+
 </div>
  <script>
     let btn = document.querySelectorAll('.buy');

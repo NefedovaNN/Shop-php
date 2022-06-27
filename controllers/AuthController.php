@@ -21,6 +21,9 @@ class AuthController extends Controller
     public function actionLogin() {
         $login = App::call()->request->getParams()['login'];
         $password = App::call()->request->getParams()['password'];
+
+        
+      
         if (App::call()->userRepository->Auth($login, $password)){
             header("Location: /");
             die();

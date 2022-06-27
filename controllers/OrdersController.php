@@ -47,6 +47,7 @@ class OrdersController extends Controller
     $login = App::call()->userRepository->getLogin();
     $user = App::call()->userRepository->getWhere('login', $login);
     $sum = App::call()->basketRepository->getBasketSum( $session_id);
+    
     echo $this->render('orders/checkoutInfo', [
       'user' => $user,
       'sum' => $sum,
