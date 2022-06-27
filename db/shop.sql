@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 06 2022 г., 16:36
+-- Время создания: Июн 27 2022 г., 16:37
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.4.27
 
@@ -30,44 +30,35 @@ SET time_zone = "+00:00";
 CREATE TABLE `basket` (
   `id` int UNSIGNED NOT NULL,
   `session_id` text NOT NULL,
-  `product_id` int NOT NULL
+  `product_id` int NOT NULL,
+  `quantity` int UNSIGNED DEFAULT '1',
+  `product_sum` int UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `basket`
 --
 
-INSERT INTO `basket` (`id`, `session_id`, `product_id`) VALUES
-(176, '0a6m56tvofkl85nme4gu00ej8t021o6g', 1),
-(177, '0a6m56tvofkl85nme4gu00ej8t021o6g', 2),
-(178, 'gp27sv8278suesscn2d1acpd1o8pijmi', 2),
-(179, 'gp27sv8278suesscn2d1acpd1o8pijmi', 2),
-(181, '91erlgedmt5sipcq8arraleldkuf8s2t', 1),
-(182, '91erlgedmt5sipcq8arraleldkuf8s2t', 2),
-(184, 'g3g8nka8uhd3t5fek3nndj7m02hmvnhl', 1),
-(185, 'g3g8nka8uhd3t5fek3nndj7m02hmvnhl', 2),
-(188, 'msbtp9lqd7ikjscnmsa8aq04htrsgg4v', 2),
-(189, 'rn2bjsvd6j3bp6as8p4bful7gole2p80', 1),
-(190, 'rn2bjsvd6j3bp6as8p4bful7gole2p80', 2),
-(191, 'rn2bjsvd6j3bp6as8p4bful7gole2p80', 3),
-(192, 'un3nci82nf7r5d8i5daebi6c23dsj4dh', 4),
-(193, 'un3nci82nf7r5d8i5daebi6c23dsj4dh', 3),
-(194, 'krr9rf477bkrk26mk87qojrsf0ahhkrm', 6),
-(195, 'krr9rf477bkrk26mk87qojrsf0ahhkrm', 5),
-(196, 'fon8u758etoqohb1iglvq4h5mbimt82r', 1),
-(197, 'fon8u758etoqohb1iglvq4h5mbimt82r', 2),
-(198, 'p3bqou6vdeluij71lu5n97q5cphdqorr', 2),
-(199, 'p3bqou6vdeluij71lu5n97q5cphdqorr', 1),
-(200, 'ekk90tmhjh25qdl949fbs8c0t8bvkvtl', 1),
-(201, 'fqm8vc56cv3r6s8ierf7srk02a14ne5k', 2),
-(202, 'fqm8vc56cv3r6s8ierf7srk02a14ne5k', 1),
-(203, 'keffmbd94m5sn1bugh74rgse0g9s3pp4', 2),
-(204, 'keffmbd94m5sn1bugh74rgse0g9s3pp4', 1),
-(205, 'bf81ser5ldkjkpatpl1cvb34jq4fvke1', 1),
-(206, 'bf81ser5ldkjkpatpl1cvb34jq4fvke1', 2),
-(207, 'i90abjr85510dbhrjk59avb9d6sj7pdp', 3),
-(208, 'i90abjr85510dbhrjk59avb9d6sj7pdp', 4),
-(209, 'i90abjr85510dbhrjk59avb9d6sj7pdp', 5);
+INSERT INTO `basket` (`id`, `session_id`, `product_id`, `quantity`, `product_sum`) VALUES
+(313, '8emlr2nhkasv45hbba691ma5ubhjmlcb', 2, 1, 50),
+(315, '8emlr2nhkasv45hbba691ma5ubhjmlcb', 3, 1, 40),
+(316, 'mbsn95ltrnlsj0v5tbdiuhceoenp2ckl', 1, 2, 172),
+(317, 'mbsn95ltrnlsj0v5tbdiuhceoenp2ckl', 2, 3, 150),
+(318, 'mbsn95ltrnlsj0v5tbdiuhceoenp2ckl', 3, 1, 40),
+(319, 'fp1g46mdq7445li68hh5ooaq7gci3j2k', 2, 2, 100),
+(320, 'fp1g46mdq7445li68hh5ooaq7gci3j2k', 3, 2, 80),
+(323, '9op2tkqgds55r58uv85ra7o6lkrv05rj', 1, 2, 172),
+(324, '9op2tkqgds55r58uv85ra7o6lkrv05rj', 2, 1, 50),
+(325, '9op2tkqgds55r58uv85ra7o6lkrv05rj', 3, 2, 80),
+(326, 'l6o60udr1ft2tq6496roma650le619op', 1, 1, 86),
+(327, 'l6o60udr1ft2tq6496roma650le619op', 2, 1, 50),
+(328, 'uove47ec0ui04q86d9mpppimc5cg5ets', 1, 1, 86),
+(329, 'uove47ec0ui04q86d9mpppimc5cg5ets', 2, 1, 50),
+(330, 'n9fc6uvnehq2l92kq1lr5eg0ttt9udj7', 3, 1, 40),
+(331, 'n9fc6uvnehq2l92kq1lr5eg0ttt9udj7', 2, 1, 50),
+(332, 'n9fc6uvnehq2l92kq1lr5eg0ttt9udj7', 1, 1, 86),
+(333, 'pt951th8oc7d5lv94fda8092leeebbdn', 1, 1, 86),
+(334, 'pt951th8oc7d5lv94fda8092leeebbdn', 2, 2, 100);
 
 -- --------------------------------------------------------
 
@@ -78,8 +69,12 @@ INSERT INTO `basket` (`id`, `session_id`, `product_id`) VALUES
 CREATE TABLE `orders` (
   `id` int UNSIGNED NOT NULL,
   `session_id` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `numberPhone` varchar(255) NOT NULL,
-  `sum` varchar(255) NOT NULL,
+  `login` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `firstName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `numberPhone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `sum` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'Заказ оформлен'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -87,19 +82,12 @@ CREATE TABLE `orders` (
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `session_id`, `numberPhone`, `sum`, `status`) VALUES
-(42, 'msbtp9lqd7ikjscnmsa8aq04htrsgg4v', '55433', '50', 'Заказ готов'),
-(43, 'rn2bjsvd6j3bp6as8p4bful7gole2p80', '123456', '176', 'новый заказ'),
-(44, 'un3nci82nf7r5d8i5daebi6c23dsj4dh', '0987', '58', 'Заказ собирается'),
-(45, 'krr9rf477bkrk26mk87qojrsf0ahhkrm', '111', '50', 'новый заказ'),
-(46, 'fon8u758etoqohb1iglvq4h5mbimt82r', '111', '136', 'новый заказ'),
-(47, 'p3bqou6vdeluij71lu5n97q5cphdqorr', '000', '136', 'новый заказ'),
-(48, 'ekk90tmhjh25qdl949fbs8c0t8bvkvtl', '000', '86', 'новый заказ'),
-(49, 'fqm8vc56cv3r6s8ierf7srk02a14ne5k', '111', '136', 'Заказ оформлен'),
-(50, 'keffmbd94m5sn1bugh74rgse0g9s3pp4', '111', '136', 'Заказ оформлен'),
-(51, 'msbtp9lqd7ikjscnmsa8aq04htrsgg4v', '55433', '50', 'Заказ оформлен'),
-(63, 'bf81ser5ldkjkpatpl1cvb34jq4fvke1', '55433', '136', 'Заказ оформлен'),
-(64, 'i90abjr85510dbhrjk59avb9d6sj7pdp', '000', '78', 'Заказ оформлен');
+INSERT INTO `orders` (`id`, `session_id`, `login`, `firstName`, `email`, `numberPhone`, `city`, `sum`, `status`) VALUES
+(80, '8emlr2nhkasv45hbba691ma5ubhjmlcb', 'userAnn', 'Анна', 'ann@mail.ru', '0987', 'Москва', '90', 'Заказ готов'),
+(81, 'mbsn95ltrnlsj0v5tbdiuhceoenp2ckl', 'uigui', 'Петр', 'petr@yandex.ru', '000', 'MIOIhiohio', '362', 'Заказ собирается'),
+(82, '9op2tkqgds55r58uv85ra7o6lkrv05rj', NULL, 'Ангелина', 'asas@lkl', '3686', 'Москва', '302', 'Заказ собирается'),
+(85, 'n9fc6uvnehq2l92kq1lr5eg0ttt9udj7', 'userNew', 'Олег', 'qssqs@fbfs.ru', '3686', 'Волгоград', '176', 'Заказ оформлен'),
+(86, 'clvh4kalvgcd522enuuvjuob3rl290d4', 'userAnn', 'Анна', 'ann@mail.ru', '0987', 'Москва', '0', 'Заказ оформлен');
 
 -- --------------------------------------------------------
 
@@ -130,9 +118,7 @@ INSERT INTO `products` (`id`, `image`, `title`, `description`, `price`) VALUES
 (8, '08.jpg', 'Baby shoes with laces', 'Check out our lace baby shoes selection for the very best in unique or custom, handmade pieces from our shoes shops.', 30),
 (9, '09.jpg', 'Basic hooded sweatshirt in pink', 'Id habitant tempor aliquam vulputate enim velit tincidunt sed. Urna sed facilisis nulla feugiat amet venenatis. Id suspendisse ut quis tellus aliquam pellentesque neque, semper donec.', 16),
 (10, '10.jpg', 'Skinny push-up jeans', 'The skinny push up jeans and the slim push up jeans are made for you. They will lengthen your shape and raise your buttocks. Choose high-waisted slim or skinny push-up jeans if you have a thin waist or an hourglass shape.', 40),
-(11, '11.jpg', 'Leather crossbody bag', 'Made from genuine Goat leather. This bag is hand crafted by artisans working with leather for decades. Push Button lock under main buckle for easy access.', 90),
-(50, '26.jpg', 'Пицца', 'Описание', 125),
-(52, '27.jpg', 'батон', 'описание', 40);
+(11, '11.jpg', 'Leather crossbody bag', 'Made from genuine Goat leather. This bag is hand crafted by artisans working with leather for decades. Push Button lock under main buckle for easy access.', 90);
 
 -- --------------------------------------------------------
 
@@ -143,21 +129,23 @@ INSERT INTO `products` (`id`, `image`, `title`, `description`, `price`) VALUES
 CREATE TABLE `reviews` (
   `id` int UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `feedback` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `feedback` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `login` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `reviews`
 --
 
-INSERT INTO `reviews` (`id`, `name`, `feedback`) VALUES
-(1, 'Anna', 'Great quality clothes, staff very polite and always ready to help!'),
-(2, 'Mary', '\r\nExcellent service! Quality items at very affordable prices attractive prices. can always be found for\r\nsomething interesting and original!'),
-(3, 'Olga', ' Excellent service and product quality on the highest level!'),
-(4, 'Alex', 'Good '),
-(5, 'Dmitry', 'Very good!'),
-(6, 'Vlad', 'Great selection of clothing items affordable prices for quality clothes'),
-(26, 'Kostya', 'beautig');
+INSERT INTO `reviews` (`id`, `name`, `feedback`, `login`) VALUES
+(33, 'Ann', 'It is very good', NULL),
+(36, 'sds', 'Good ', NULL),
+(37, 'Ангелина:', 'очень круто!!!! Надя Умничка!!!!!', NULL),
+(38, 'Vladislav', 'Моя Надюша просто гений! люблю её!!!', NULL),
+(40, 'Анна', 'Great selection of clothing items affordable prices for quality clothes', 'userAnn'),
+(45, 'Надежда', '12332', 'admin'),
+(52, 'Анна', 'Good', 'userAnn'),
+(57, 'Анна', '123', 'userAnn');
 
 -- --------------------------------------------------------
 
@@ -169,15 +157,24 @@ CREATE TABLE `users` (
   `id` int UNSIGNED NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` text NOT NULL,
-  `hash` varchar(255) NOT NULL
+  `hash` varchar(255) NOT NULL,
+  `numberPhone` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `hash`) VALUES
-(1, 'admin', '123', '$2y$10$VyxxhNTNLIDYlnHkrE1GrumVEuZRAvTKS5wtCM9P5m5mYe9mcrKIC');
+INSERT INTO `users` (`id`, `login`, `password`, `hash`, `numberPhone`, `firstName`, `lastName`, `email`, `city`) VALUES
+(1, 'admin', '123', '$2y$10$cNN5NpJoAyvxBixNvzLsJuXU4aFb1E5cKzV3aTMjnSqkJJfvzK8JK', NULL, 'Надежда', '', '', ''),
+(17, 'user', '111', '$2y$10$ATQYBHokBoH/qQ9DDhf7wuTWWnzwiGF/4z1Vp7Lcphe/PrOLKlcBu', '55433', '', '', '', ''),
+(18, 'userAnn', '000', '$2y$10$6JaMMCQvGmu5UOjXQbN25u8iXJTxkrS9uaLmchCQXD0PsVPBfJBPW', '0987', 'Анна', 'Иванова', 'ann@mail.ru', 'Москва'),
+(19, 'uigui', '222', '$2y$10$p5G5L.9KeGDFRYEBYhB7J.W0jnuf.XJfyeqtQhy8xsGkCS18DpyLy', '000', 'Петр', 'Иванов', 'petr@yandex.ru', 'MIOIhiohio'),
+(20, 'userNew', '123', '$2y$10$A3PR5SCUqLOIw241Ck9LTuQ.e.j/NqI/GgEQn.xa7FY1FyeLpzlTe', '3686', 'Олег', 'Иванов', 'qssqs@fbfs.ru', 'Волгоград');
 
 --
 -- Индексы сохранённых таблиц
@@ -223,13 +220,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=341;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
@@ -241,13 +238,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
